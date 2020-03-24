@@ -17,12 +17,9 @@ export default function ForgetPasswordScreen({ navigation }) {
     try {
       await firebase.auth().sendPasswordResetEmail(mail);
 
-      // setsend(true);
-      // Navigate to the Home page
       Alert.alert('password has been send');
       console.log('password has been send');
     } catch (error) {
-      // console.log(error.toString())
       Alert.alert('error');
     }
   }
