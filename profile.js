@@ -9,7 +9,6 @@ export default function profile({ navigation }) {
 
       navigation.replace('SignupScreen');
       console.log('LoggedOut');
-      // Navigate to login view
     } catch (error) {
       console.log(error);
     }
