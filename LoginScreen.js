@@ -35,7 +35,7 @@ export default function LoginScreen({ navigation }) {
   async function login() {
     try {
       await firebase.auth().signInWithEmailAndPassword(mail, pass);
-      navigation.navigate('profile', { mail: mail });
+      navigation.replace('profile', { mail: mail });
       setmail('');
       setpass('');
       console.log('LoggedIn!');
