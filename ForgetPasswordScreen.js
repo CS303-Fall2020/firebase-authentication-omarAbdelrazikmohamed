@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button, TextInput, Alert } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  TextInput,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard
+} from 'react-native';
 import * as firebase from 'firebase';
 
 export default function ForgetPasswordScreen({ navigation }) {
@@ -25,23 +34,28 @@ export default function ForgetPasswordScreen({ navigation }) {
   }
   //--------------------------------------------------------------------------------------
   return (
-    <View>
-      <TextInput
-        style={styles.input}
-        // autoCapitalize='none'
-        placeholder=' email@gmail.com'
-        onChangeText={changeEmail}
-      />
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+        console.log('dismissed Keyboard');
+      }}
+    >
+      <View>
+        <TextInput
+          style={styles.input}
+          placeholder=' email@gmail.com'
+          onChangeText={changeEmail}
+        />
 
-      {/* <Text style={{ padding: 10 }}></Text> */}
-      <View style={{ padding: 20, marginTop: 25 }}>
-        <Button title='SEND RESET EMAIL' onPress={forgetpass} />
-      </View>
+        <View style={{ padding: 20, marginTop: 25 }}>
+          <Button title='SEND RESET EMAIL' onPress={forgetpass} />
+        </View>
 
-      <View style={{ padding: 20, marginTop: 80 }}>
-        <Button title='signup Screen' onPress={press} />
+        <View style={{ padding: 20, marginTop: 80 }}>
+          <Button title='signup Screen' onPress={press} />
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
     // <View>
     //   <Text>ForgetPassword Screen</Text>
     // </View>

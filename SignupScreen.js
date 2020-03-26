@@ -50,12 +50,12 @@ export default function SignupScreen({ navigation }) {
   async function signup() {
     try {
       await firebase.auth().createUserWithEmailAndPassword(mail, pass);
-
       //   navigation.navigate('todo', { mail: mail });
       setmail('');
       setpass('');
       setconpass('');
       console.log('Account created');
+      Alert.alert('Account created go to login screen and login');
     } catch (error) {
       Alert.alert('error');
     }
